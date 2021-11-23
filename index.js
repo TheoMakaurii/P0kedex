@@ -13,8 +13,10 @@ function main() {
       .then(responseJson => { console.log(responseJson.sprites.front_default);
         let image= responseJson.sprites.front_default;
 
-  $('#pokemon-center').append(`<img src="${image}" alt = "pokemon">`);
-      });}
+        let pokemonName=responseJson.name;
+    
+        $('#pokemon-center').append(`<a href="https://pokemondb.net/pokedex/${pokemonName}"> <img src="${image}" alt = "pokemon"> </a>`);
+            });}
     else{ let pokemon = Math.floor(Math.random() * 898) + 1;
         let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`
         console.log(url)
@@ -23,8 +25,9 @@ function main() {
           .then(response => response.json())
           .then(responseJson => { console.log(responseJson.sprites.front_default);
             let image= responseJson.sprites.front_default;
+            let pokemonName=responseJson.name;
     
-      $('#pokemon-center').append(`<img src="${image}" alt = "pokemon">`);
+      $('#pokemon-center').append(`<a href="https://pokemondb.net/pokedex/${pokemonName}"> <img src="${image}" alt = "pokemon"> </a>`);
           });}
 
   }
