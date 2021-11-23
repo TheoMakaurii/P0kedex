@@ -1,25 +1,38 @@
-
    
+// import $ from 'jquery';
+
 function main() {
     console.log('DOM is loaded');
-    let fetchurl = `https://api.thecatapi.com/v1/images/search`
-    console.log(fetchurl)
+    if($('#input').val() !== ''){
+    let pokemon = $('#input').val();
+    let url = `https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`
+    console.log(url)
   
-    fetch(fetchurl)
+    fetch(url)
       .then(response => response.json())
-      .then(responseJson => { console.log(responseJson);
-        let image= responseJson;
-        let cats=``
-        for(let i=0; i<image.length; i++){
-          cats=image[i].url;
-  $('#cat-house').append(`<img src="${cats}" alt = "cat">`);}
-      });
+      .then(responseJson => { console.log(responseJson.sprites.front_default);
+        let image= responseJson.sprites.front_default;
+
+  $('#pokemon-center').append(`<img src="${image}" alt = "pokemon">`);
+      });}
+    else{ let pokemon = Math.floor(Math.random() * 898) + 1;
+        let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`
+        console.log(url)
+      
+        fetch(url)
+          .then(response => response.json())
+          .then(responseJson => { console.log(responseJson.sprites.front_default);
+            let image= responseJson.sprites.front_default;
+    
+      $('#pokemon-center').append(`<img src="${image}" alt = "pokemon">`);
+          });}
+
   }
   
   function watchForm() {
   $('form').on('click', '#submit',() => {
       event.preventDefault();
-      $('#cat-house').html('');
+      $('#pokemon-center').html('');
       main();
     });
   }

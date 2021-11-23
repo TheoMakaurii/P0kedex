@@ -1,11 +1,11 @@
 body{
-    background-color:lightpink;
+    background-color:red;
     text-align: center;
    
 
 }
 main{
-    font-family: Verdana, Geneva, Tahoma, sans-serif ;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,35 +13,30 @@ main{
     padding-top: 28px;
     margin-bottom: 28px;
 }
-#cat-house{
-    background-color: thistle;
+#pokemon-center{
+    background-color: #f5f5f5;
     padding: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 21px;    
     width: 100%;
-    height: 100%;
     
 }
 
 .formBox{
     display: flex;
     flex-direction: column;
-
+    width: 20%;
     justify-self: center;
     padding-bottom: 28px;
-   
+    color: white;
 }
 
 .formBox #submit{
    
-   
-    background-color: thistle;
+    margin: 5px;
+    background-color: white;
     border-radius: 42px;
-    width: fit-content;
-    padding: 7px;
-   
 }
 
 img{
@@ -51,13 +46,13 @@ img{
 
 @media only screen and (min-width: 800px){
     
-    #cat-house{
+    #pokemon-center{
+        background-color: #f5f5f5;
         padding: 25px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 50%;
-
+        width: 100%;
         
     }
 
